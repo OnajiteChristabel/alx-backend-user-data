@@ -35,7 +35,7 @@ class Auth:
     def __init__(self):
         self._db = DB()
 
-def valid_login(self, email: str, password: str) -> bool:
+    def valid_login(self, email: str, password: str) -> bool:
         """
         Validate a user's login credentials
         Args:
@@ -52,4 +52,11 @@ def valid_login(self, email: str, password: str) -> bool:
         user_password = user.hashed_password
         passwd = password.encode("utf-8")
         return bcrypt.checkpw(passwd, user_password)
+
+    def _generate_uuid() -> str:
+    """
+    Generate a uuid and return its string representation
+    """
+    return str(uuid4())
+
 
